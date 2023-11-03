@@ -1,0 +1,415 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: "poppins";
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 15px;
+}
+aside nav {
+  display: flex;
+  flex-direction: column;
+}
+aside nav a {
+  padding: 20px 10px;
+  display: flex;
+  gap: 5px;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+@media (max-width: 870px) {
+  aside nav a span {
+    display: none;
+  }
+  aside nav a i {
+    font-size: 20px;
+  }
+}
+aside nav a:hover {
+  background: rgb(32, 32, 32);
+}
+aside #logo {
+  display: none;
+  width: 40px;
+}
+@media (max-width: 870px) {
+  aside #logo-text {
+    display: none;
+  }
+  aside #logo {
+    display: block;
+  }
+}
+aside img {
+  max-width: 130px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+main {
+  width: 100%;
+}
+
+main header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 10px;
+}
+@media (max-width: 870px) {
+  main header {
+    justify-content: center;
+  }
+}
+main header form {
+  display: flex;
+}
+main header form input {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+}
+main header form button {
+  background: #1db954;
+  height: 100%;
+  padding: 0 25px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+main header form button:hover {
+  background: #0ff15e;
+}
+main header ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+@media (max-width: 870px) {
+  main header ul {
+    display: none;
+  }
+}
+main header ul li {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 300ms;
+}
+main header ul li:hover {
+  background: rgb(60, 60, 60);
+}
+
+main .songs {
+  background: rgb(42, 42, 42);
+  height: 100%;
+  text-transform: capitalize;
+}
+
+main .songs #title {
+  padding: 20px;
+}
+
+main #list {
+  margin-top: 20px;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 80vh;
+  overflow-y: auto;
+  gap: 20px;
+}
+main #list::-webkit-scrollbar {
+  background: black;
+  width: 8px;
+}
+main #list::-webkit-scrollbar-thumb {
+  background: #0e9c3f;
+}
+@media (max-width: 768px) {
+  main #list {
+    justify-content: center;
+    gap: 50px;
+  }
+}
+main #list .card {
+  width: 200px;
+  height: 275px;
+  padding: 15px;
+  background: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+}
+main #list .card:hover .play {
+  opacity: 1;
+  bottom: 20px;
+}
+main #list .card figure {
+  position: relative;
+}
+main #list .card figure img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+main #list .card figure .play {
+  position: absolute;
+  background: #1db954;
+  right: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  opacity: 0;
+  bottom: -20px;
+  transition: all 0.3s;
+}
+main #list .card figure .play:hover {
+  background: #0e9c3f;
+  scale: 0.9;
+}
+main #list .card h4 {
+  margin-bottom: 6px;
+}
+
+.playing {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  z-index: 100;
+  padding: 10px 40px;
+  width: 100%;
+  background-color: #fa8bff;
+  background-image: linear-gradient(240deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.612);
+}
+@media (max-width: 768px) {
+  .playing {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+.playing .info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.playing .info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.playing audio {
+  width: 300px;
+}
+
+.animate {
+  animation: turn 4s linear infinite;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cssload-container * {
+  box-sizing: border-box;
+}
+
+.cssload-container {
+  margin: 38px auto 0 auto;
+  max-width: 1048px;
+}
+
+.cssload-container ul li {
+  list-style: none;
+}
+
+.cssload-flex-container {
+  display: flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cssload-flex-container li {
+  padding: 19px;
+  height: 188px;
+  width: 188px;
+  margin: 56px 38px;
+  position: relative;
+  text-align: center;
+}
+
+.cssload-loading-center {
+  display: inline-block;
+  position: absolute;
+  /* The color can be custmized, This color is for center cube.*/
+  background: #0e9c3f;
+  height: 56px;
+  width: 56px;
+  left: 68px;
+  top: 69px;
+  transform: rotate(45deg);
+  border-radius: 6px;
+  animation: pulse 1.3s ease infinite;
+}
+
+.cssload-loading {
+  display: inline-block;
+  position: relative;
+  width: 141px;
+  height: 141px;
+  margin-top: 6px;
+  transform: rotate(45deg);
+}
+
+.cssload-loading:after, .cssload-loading:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  display: block;
+  top: 0;
+  /* The color can be custmized, This color is for 4 cubes.*/
+  background: #0e9c3f;
+  border-radius: 6px;
+}
+
+.cssload-loading:after {
+  right: 0;
+  animation: square-tr 2.6s ease infinite;
+  animation-delay: 0.162 0.5s;
+}
+
+.cssload-loading:before {
+  animation: square-tl 2.6s ease infinite;
+  animation-delay: 0.162 0.5s;
+}
+
+.cssload-loading.cssload-two {
+  position: relative;
+  top: -150px;
+}
+
+.cssload-loading.cssload-two:after, .cssload-loading.cssload-two:before {
+  bottom: 0;
+  top: initial;
+}
+
+.cssload-loading.cssload-two:after {
+  animation: square-br 2.6s ease infinite;
+  animation-direction: reverse;
+}
+
+.cssload-loading.cssload-two:before {
+  animation: square-bl 2.6s ease infinite;
+  animation-direction: reverse;
+}
+
+@keyframes square-tl {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, 117.5px);
+  }
+  50% {
+    transform: translate(117.5px, 117.5px);
+  }
+  75% {
+    transform: translate(117.5px, 0);
+  }
+}
+@keyframes square-bl {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -117.5px);
+  }
+  50% {
+    transform: translate(117.5px, -117.5px);
+  }
+  75% {
+    transform: translate(117.5px, 0);
+  }
+}
+@keyframes square-tr {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-117.5px, 0);
+  }
+  50% {
+    transform: translate(-117.5px, 117.5px);
+  }
+  75% {
+    transform: translate(0, 117.5px);
+  }
+}
+@keyframes square-br {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-117.5px, 0);
+  }
+  50% {
+    transform: translate(-117.5px, -117.5px);
+  }
+  75% {
+    transform: translate(0, -117.5px);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(inherit) rotate(45deg);
+  }
+  75% {
+    transform: scale(0.25) rotate(45deg);
+  }
+}/*# sourceMappingURL=style.css.map */

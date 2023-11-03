@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: 'poppins';
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 15px;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    a {
+      padding: 20px 10px;
+      display: flex;
+      gap: 5px;
+      border-radius: 10px;
+      // yazılar tek satırda olucak
+      white-space: nowrap;
+      transition: all 0.3s;
+
+      @media (max-width: 870px) {
+        span {
+          display: none;
+        }
+        i {
+          font-size: 20px;
+        }
+      }
+
+      &:hover {
+        background: rgb(32, 32, 32);
+      }
+    }
+  }
+
+  #logo {
+    display: none;
+    width: 40px;
+  }
+
+  @media (max-width: 870px) {
+    #logo-text {
+      display: none;
+    }
+    #logo {
+      display: block;
+    }
+  }
+
+  img {
+    max-width: 130px;
+    object-fit: contain;
+  }
+}
+
+main {
+  width: 100%;
+}
+
+// ana içerik > üst kısım
+main header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 10px;
+
+  @media (max-width: 870px) {
+    justify-content: center;
+  }
+
+  form {
+    display: flex;
+    input {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: black;
+    }
+    button {
+      background: #1db954;
+      height: 100%;
+      padding: 0 25px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      border-radius: 0 5px 5px 0;
+      &:hover {
+        background: #0ff15e;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    @media (max-width: 870px) {
+      display: none;
+    }
+
+    li {
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 300ms;
+      &:hover {
+        background: rgb(60, 60, 60);
+      }
+    }
+  }
+}
+
+// ana içerik > alt kısım
+main .songs {
+  background: rgb(42, 42, 42);
+  height: 100%;
+  text-transform: capitalize;
+}
+
+main .songs #title {
+  padding: 20px;
+}
+
+main #list {
+  margin-top: 20px;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 80vh;
+  overflow-y: auto;
+  gap: 20px;
+
+  &::-webkit-scrollbar {
+    background: black;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0e9c3f;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .card {
+    width: 200px;
+    height: 275px;
+    padding: 15px;
+    background: #181818;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover .play {
+      opacity: 1;
+      bottom: 20px;
+    }
+
+    figure {
+      position: relative;
+      img {
+        width: 100%;
+        border-radius: 6px;
+        margin-bottom: 10px;
+      }
+      .play {
+        position: absolute;
+        background: #1db954;
+        right: 10px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        font-size: 23px;
+        // görünmez olucak
+        opacity: 0;
+        bottom: -20px;
+        transition: all 0.3s;
+        &:hover {
+          background: #0e9c3f;
+          scale: 0.9;
+        }
+      }
+    }
+
+    h4 {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+// oynaıtlan şarkı barı
+.playing {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  z-index: 100;
+  padding: 10px 40px;
+  width: 100%;
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    240deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.612);
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
+
+  audio {
+    width: 300px;
+  }
+}
+
+.animate {
+  animation: turn 4s linear infinite;
+}
+
+@keyframes turn {
+  // anmisayon başlandığında sahip oluncak değer
+  from {
+    transform: rotate(0);
+  }
+  // animasyonun bitişinde sahip oluncak değer
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cssload-container * {
+  box-sizing: border-box;
+}
+
+.cssload-container {
+  margin: 38px auto 0 auto;
+  max-width: 1048px;
+}
+
+.cssload-container ul li {
+  list-style: none;
+}
+
+.cssload-flex-container {
+  display: flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cssload-flex-container li {
+  padding: 19px;
+  height: 188px;
+  width: 188px;
+  margin: 56px 38px;
+  position: relative;
+  text-align: center;
+}
+
+.cssload-loading-center {
+  display: inline-block;
+  position: absolute;
+    /* The color can be custmized, This color is for center cube.*/
+  background: #0e9c3f;
+  height: 56px;
+  width: 56px;
+  left: 68px;
+  top: 69px;
+  transform: rotate(45deg);
+  border-radius: 6px;
+  animation: pulse 1.3s ease infinite;
+}
+
+.cssload-loading {
+  display: inline-block;
+  position: relative;
+  width: 141px;
+  height: 141px;
+  margin-top: 6px;
+  transform: rotate(45deg);
+}
+
+.cssload-loading:after, .cssload-loading:before {
+  position: absolute;
+  content: '';
+  height: 19px;
+  width: 19px;
+  display: block;
+  top: 0;
+    /* The color can be custmized, This color is for 4 cubes.*/
+  background: #0e9c3f;
+  border-radius: 6px;
+}
+
+.cssload-loading:after {
+  right: 0;
+  animation: square-tr 2.6s ease infinite;
+  animation-delay: .162.5s;
+}
+
+.cssload-loading:before {
+  animation: square-tl 2.6s ease infinite;
+  animation-delay: .162.5s;
+}
+
+.cssload-loading.cssload-two {
+  position: relative;
+  top: -150px;
+}
+
+.cssload-loading.cssload-two:after, .cssload-loading.cssload-two:before {
+  bottom: 0;
+  top: initial;
+}
+
+.cssload-loading.cssload-two:after {
+  animation: square-br 2.6s ease infinite;
+  animation-direction: reverse;
+}
+
+.cssload-loading.cssload-two:before {
+  animation: square-bl 2.6s ease infinite;
+  animation-direction: reverse;
+}
+
+@keyframes square-tl {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0, 117.5px);
+  }
+
+  50% {
+    transform: translate(117.5px, 117.5px);
+  }
+
+  75% {
+    transform: translate(117.5px, 0);
+  }
+}
+
+@keyframes square-bl {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0, -117.5px);
+  }
+
+  50% {
+    transform: translate(117.5px, -117.5px);
+  }
+
+  75% {
+    transform: translate(117.5px, 0);
+  }
+}
+
+@keyframes square-tr {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-117.5px, 0);
+  }
+
+  50% {
+    transform: translate(-117.5px, 117.5px);
+  }
+
+  75% {
+    transform: translate(0, 117.5px);
+  }
+}
+
+@keyframes square-br {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-117.5px, 0);
+  }
+
+  50% {
+    transform: translate(-117.5px, -117.5px);
+  }
+
+  75% {
+    transform: translate(0, -117.5px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(inherit) rotate(45deg);
+  }
+
+  75% {
+    transform: scale(0.25) rotate(45deg);
+  }
+}
