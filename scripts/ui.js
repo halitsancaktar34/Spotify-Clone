@@ -1,4 +1,4 @@
-// html'den gelenler
+// Html'den gelenler
 export const ele = {
   list: document.querySelector('#list'),
   playingInfo: document.querySelector('.playing'),
@@ -6,26 +6,21 @@ export const ele = {
   title: document.querySelector('.songs #title'),
 };
 
-// arayüz işlemleri
+// Arayüz işlemleri
 export const renderCards = (songs) => {
-  // eski şarkıları sil
+
   ele.list.innerHTML = '';
 
   songs.forEach((song) => {
-    // div oluşturma
+
     const div = document.createElement('div');
 
-    // kart elemanına ileride js'den erişmek
-    // için bazı verleri ekliyecez
-    // conditional chaining ?.
     div.dataset.url = song.hub?.actions.pop().uri;
     div.dataset.title = song.title;
     div.dataset.photo = song.images.coverart;
 
-    // class verme
     div.className = 'card';
 
-    // içeriği belirleme
     div.innerHTML = `
             <figure>
               <img
@@ -43,7 +38,6 @@ export const renderCards = (songs) => {
   });
 };
 
-// müzik bilgilerini ekrana basar
 export const renderPlayingInfo = (data) => {
   ele.playingInfo.innerHTML = `
       <div class="info ">
