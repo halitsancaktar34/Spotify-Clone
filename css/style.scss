@@ -152,10 +152,9 @@ main #list {
   padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   height: 80vh;
   overflow-y: auto;
-  gap: 20px;
+  gap: 30px;
 
   &::-webkit-scrollbar {
     background: black;
@@ -173,11 +172,15 @@ main #list {
 
   .card {
     width: 200px;
-    height: 275px;
-    padding: 15px;
+    height: 315px;
+    padding: 20px;
     background: #181818;
     border-radius: 6px;
     cursor: pointer;
+
+    p{
+
+    }
 
     &:hover .play {
       opacity: 1;
@@ -186,6 +189,7 @@ main #list {
 
     figure {
       position: relative;
+      
 
       img {
         width: 100%;

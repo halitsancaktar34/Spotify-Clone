@@ -137,10 +137,9 @@ main #list {
   padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   height: 80vh;
   overflow-y: auto;
-  gap: 20px;
+  gap: 30px;
 }
 main #list::-webkit-scrollbar {
   background: black;
@@ -157,8 +156,8 @@ main #list::-webkit-scrollbar-thumb {
 }
 main #list .card {
   width: 200px;
-  height: 275px;
-  padding: 15px;
+  height: 315px;
+  padding: 20px;
   background: #181818;
   border-radius: 6px;
   cursor: pointer;
@@ -298,7 +297,8 @@ main #list .card h4 {
   transform: rotate(45deg);
 }
 
-.cssload-loading:after, .cssload-loading:before {
+.cssload-loading:after,
+.cssload-loading:before {
   position: absolute;
   content: "";
   height: 19px;
@@ -326,7 +326,8 @@ main #list .card h4 {
   top: -150px;
 }
 
-.cssload-loading.cssload-two:after, .cssload-loading.cssload-two:before {
+.cssload-loading.cssload-two:after,
+.cssload-loading.cssload-two:before {
   bottom: 0;
   top: initial;
 }
